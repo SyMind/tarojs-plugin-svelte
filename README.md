@@ -2,6 +2,8 @@
 
 使用 Svelte 开发小程序。
 
+> 施工中 🚧
+
 > 请 Star 🌟 这个项目来表达你的喜爱 ❤️ 和支持。
 
 # 安装与使用
@@ -33,4 +35,6 @@ const config = {
 }
 ```
 
+# License
 
+[MIT](./LICENSE)
