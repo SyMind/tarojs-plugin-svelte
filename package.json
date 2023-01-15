@@ -1,5 +1,5 @@
 {
-  "name": "taro-plugin-svelte",
+  "name": "tarojs-plugin-svelte",
   "version": "0.0.1",
   "description": "Taro 插件，用于支持 Svelte",
   "main": "lib/index.js",
@@ -9,7 +9,7 @@
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SyMind/taro-plugin-svelte.git"
+    "url": "git+https://github.com/SyMind/tarojs-plugin-svelte.git"
   },
   "keywords": [
     "taro",
@@ -20,9 +20,9 @@
   "author": "SyMind",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/SyMind/taro-plugin-svelte/issues"
+    "url": "https://github.com/SyMind/tarojs-plugin-svelte/issues"
   },
-  "homepage": "https://github.com/SyMind/taro-plugin-svelte#readme",
+  "homepage": "https://github.com/SyMind/tarojs-plugin-svelte#readme",
   "dependencies": {
     "svelte-loader": "^3.1.4"
   }
