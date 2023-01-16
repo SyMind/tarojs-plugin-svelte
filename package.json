@@ -24,6 +24,11 @@
   },
   "homepage": "https://github.com/SyMind/tarojs-plugin-svelte#readme",
   "dependencies": {
-    "svelte-loader": "^3.1.4"
+    "loader-utils": "^2.0.3",
+    "svelte": "^3.55.1",
+    "svelte-hmr": "^0.14.2"
+  },
+  "peerDependencies": {
+    "@tarojs/webpack5-runner": "^3.0.0"
   }
 }
