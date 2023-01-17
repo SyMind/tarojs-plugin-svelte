@@ -1,4 +1,4 @@
-# tarojs-plugin-svelte
+# Tarojs Plugin Svelte
 
 使用 Svelte 开发小程序。
 
