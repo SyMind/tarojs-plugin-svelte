@@ -1,7 +1,7 @@
 {
   "name": "tarojs-plugin-svelte",
-  "version": "0.0.2",
-  "description": "Taro 插件，用于支持 Svelte",
+  "version": "0.0.3",
+  "description": "使用 Svelte 开发小程序",
   "main": "lib/index.js",
   "files": [
     "lib"
