@@ -75,13 +75,6 @@ typings/
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 
-# Next.js build output
-.next
-
-# Nuxt.js build / generate output
-.nuxt
-dist
-
 # Gatsby files
 .cache/
 # Comment in the public line in if your project uses Gatsby and *not* Next.js
@@ -102,3 +95,11 @@ dist
 
 # TernJS port file
 .tern-port
+
+dist/
+deploy_versions/
+.temp/
+.rn_temp/
+.DS_Store
+.swc
+.yalc
