@@ -1,5 +1,7 @@
 # Tarojs Plugin Svelte
 
+<img alt="" src="https://github.com/SyMind/tarojs-plugin-svelte/blob/main/screenshots/weapp.png">
+
 使用 Svelte 开发小程序。
 
 > 施工中 🚧。
