@@ -14,8 +14,8 @@
   <taro-view class="userinfo">
     <taro-view class="userinfo-avatar" on:tap={handleTap}>
       <taro-open-data type="userAvatarUrl"></taro-open-data>
-      <taro-open-data type="userNickName"></taro-open-data>
     </taro-view>
+    <taro-open-data type="userNickName"></taro-open-data>
   </taro-view>
 
   <taro-view class="usermotto">
