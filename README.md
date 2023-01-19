@@ -1,8 +1,8 @@
-# Tarojs Plugin Svelte
+<h1 align="center">Taro Plugin Svelte</h1>
+
+<p align="center">使用 Svelte 开发小程序。</p>
 
 <img alt="" src="https://github.com/SyMind/tarojs-plugin-svelte/blob/main/screenshots/weapp.png">
-
-使用 Svelte 开发小程序。
 
 > 请 Star 🌟 这个项目来表达你的喜爱 ❤️ 和支持。
 
