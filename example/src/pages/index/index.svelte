@@ -10,18 +10,18 @@
   }
 </script>
 
-<taro-view class="container">
-  <taro-view class="userinfo">
-    <taro-view class="userinfo-avatar" on:tap={handleTap}>
-      <taro-open-data type="userAvatarUrl"></taro-open-data>
-    </taro-view>
-    <taro-open-data type="userNickName"></taro-open-data>
-  </taro-view>
+<t-view class="container">
+  <t-view class="userinfo">
+    <t-view class="userinfo-avatar" on:tap={handleTap}>
+      <t-open-data type="userAvatarUrl"></t-open-data>
+    </t-view>
+    <t-open-data type="userNickName"></t-open-data>
+  </t-view>
 
-  <taro-view class="usermotto">
-    <taro-text class="user-motto">{motto}</taro-text>
-  </taro-view>
-</taro-view>
+  <t-view class="usermotto">
+    <t-text class="user-motto">{motto}</t-text>
+  </t-view>
+</t-view>
 
 <style>
   .container {

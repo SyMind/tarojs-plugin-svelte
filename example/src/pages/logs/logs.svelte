@@ -34,11 +34,11 @@
 	})
 </script>
 
-<taro-view class="container log-list">
+<t-view class="container log-list">
   {#each logs as log, i (log.timeStamp)}
-    <taro-text class="log-item">{i + 1}. {log.date}</taro-text>
+    <t-text class="log-item">{i + 1}. {log.date}</t-text>
   {/each}
-</taro-view>
+</t-view>
 
 <style>
   .log-list {

@@ -10,17 +10,17 @@
   }
 </script>
 
-<taro-view class="container">
-  <taro-view class="userinfo">
-    <taro-view class="userinfo-avatar" on:tap={handleTap}>
-      <taro-image src="https://img.yzcdn.cn/vant/cat.jpeg" />
-    </taro-view>
-  </taro-view>
+<t-view class="container">
+  <t-view class="userinfo">
+    <t-view class="userinfo-avatar" on:tap={handleTap}>
+      <t-image src="https://img.yzcdn.cn/vant/cat.jpeg" />
+    </t-view>
+  </t-view>
 
-  <taro-view class="usermotto">
-    <taro-text class="user-motto">{motto}</taro-text>
-  </taro-view>
-</taro-view>
+  <t-view class="usermotto">
+    <t-text class="user-motto">{motto}</t-text>
+  </t-view>
+</t-view>
 
 <style>
   .container {
