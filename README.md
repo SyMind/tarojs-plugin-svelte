@@ -12,14 +12,14 @@
 
 ### 安装
 
-本项目以 Taro 插件的形式存在，请在你的 Taro 项目中安装**本插件**。
+本项目以 Taro 插件的形式存在，请在你的 Taro 项目中安装**Svelte**和**本插件**。
 
 ```bash
-npm install tarojs-plugin-svelte
+npm install tarojs-plugin-svelte svelte
 ```
 
 ```bash
-yarn add tarojs-plugin-svelte
+yarn add tarojs-plugin-svelte svelte
 ```
 
 ### 配置
