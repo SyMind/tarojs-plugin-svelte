@@ -35,20 +35,7 @@ const config = {
     framework: 'svelte',
     plugins: [
         'tarojs-plugin-svelte'
-    ]
-}
-```
-
-还需要修改 `babel.config.js`。
-
-```javascript
-module.exports = {
-  presets: [
-    ['taro', {
-      framework: 'svelte',
-      ts: false
-    }]
-  ]
+    ],
 }
 ```
 
