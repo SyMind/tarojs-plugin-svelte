@@ -102,3 +102,4 @@ deploy_versions/
 .DS_Store
 .swc
 .yalc
+yalc.lock
