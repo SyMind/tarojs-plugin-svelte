@@ -1,6 +1,6 @@
 {
   "name": "tarojs-plugin-svelte",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "使用 Svelte 开发小程序",
   "main": "lib/index.js",
   "files": [
