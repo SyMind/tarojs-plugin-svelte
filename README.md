@@ -6,6 +6,10 @@
 
 > 请 Star 🌟 这个项目来表达你的喜爱 ❤️ 和支持。
 
+# 示例项目
+
+[使用 Svelte 开发的网易云音乐小程序](https://github.com/SyMind/netease-cloud-music)
+
 # 安装与使用
 
 你需要先拥有一个 Taro 项目，如果你还不知该如何创建一个 Taro 项目，请先从这里开始：[Taro 安装及使用](https://docs.taro.zone/docs/GETTING-STARTED)。
