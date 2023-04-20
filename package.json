@@ -29,7 +29,8 @@
     "svelte-loader": "^3.1.5"
   },
   "peerDependencies": {
-    "@tarojs/webpack5-runner": ">=3.0.0"
+    "@tarojs/webpack5-runner": ">=3.0.0",
+    "svelte": ">=3.0.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
