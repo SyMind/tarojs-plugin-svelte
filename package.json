@@ -1,6 +1,6 @@
 {
   "name": "tarojs-plugin-svelte",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "使用 Svelte 开发小程序",
   "main": "lib/index.js",
   "files": [
@@ -30,5 +30,9 @@
   },
   "peerDependencies": {
     "@tarojs/webpack5-runner": ">=3.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   }
 }
