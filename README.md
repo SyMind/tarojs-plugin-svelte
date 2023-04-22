@@ -39,6 +39,15 @@ const config = {
 }
 ```
 
+# 和使用 React 的对比
+
+## 打包体积
+
+|        | 初始项目 |
+| ------ | -------- |
+| Svelte | 307kb    |
+| React  | 201kb    |
+
 # License
 
 [MIT](./LICENSE)
