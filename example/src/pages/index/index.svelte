@@ -1,5 +1,6 @@
 <script>
   import Taro from '@tarojs/taro'
+  import Block from '../../components/Block.svelte'
 
   const motto = 'Hello World'
 
@@ -11,6 +12,11 @@
 </script>
 
 <t-view class="container">
+  <Block>
+    <t-view>Hello!</t-view>
+	  <t-view>This is a box. It can contain anything.</t-view>
+  </Block>
+
   <t-view class="userinfo">
     <t-view class="userinfo-avatar" on:tap={handleTap}>
       <t-open-data type="userAvatarUrl"></t-open-data>
