@@ -3,7 +3,8 @@
 module.exports = {
   presets: [
     ['taro', {
-      ts: false
+      framework: 'svelte',
+      ts: false,
     }]
   ]
 }
