@@ -41,13 +41,15 @@ const config = {
 
 # 和使用 React 的对比
 
+> 比较方法的细节在这里 [svelte-react-analysis](https://github.com/SyMind/svelte-react-analysis) 。
+
 ## 打包体积
 
-|        | 初始项目 |
-| ------ | -------- |
-| Svelte | 178kb    |
-| React  | 307kb    |
-| PReact | 193kb    |
+|        | 初始项目   |
+| ------ | ---------- |
+| Svelte | 178kb ⭐️ |
+| React  | 307kb      |
+| PReact | 193kb      |
 
 # License
 
