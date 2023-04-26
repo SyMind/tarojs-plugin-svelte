@@ -1,4 +1,4 @@
-function getLoaderMeta() {
+export function getLoaderMeta() {
     return {
       importFrameworkStatement: '',
       mockAppStatement: '',
@@ -9,5 +9,3 @@ function getLoaderMeta() {
       isNeedRawLoader: true
     }
 }
-
-module.exports.getLoaderMeta = getLoaderMeta

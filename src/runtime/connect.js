@@ -6,7 +6,7 @@ installGlobalShims()
 
 const [ONLAUNCH, ONSHOW, ONHIDE] = hooks.call('getMiniLifecycleImpl').app
 
-function createSvelteApp(app, config) {
+export function createSvelteApp(app, config) {
     const pages = new Map()
 
     const appConfig = {
@@ -75,5 +75,3 @@ function createSvelteApp(app, config) {
 
     return appConfig
 }
-
-exports.createSvelteApp = createSvelteApp

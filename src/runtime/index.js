@@ -1,1 +1,1 @@
-module.exports = require('./connect')
+export * from './connect'

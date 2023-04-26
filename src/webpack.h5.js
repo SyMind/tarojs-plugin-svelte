@@ -1,7 +1,7 @@
-const sveltePreprocess = require('svelte-preprocess')
-const { getLoaderMeta } = require('./loader-meta')
+import sveltePreprocess from 'svelte-preprocess'
+import { getLoaderMeta } from './loader-meta'
 
-function modifyH5WebpackChain(chain) {
+export function modifyH5WebpackChain(chain) {
     const alias = chain.resolve.alias
     alias.set('@tarojs/components$', 'tarojs-plugin-svelte/lib/components')
 
@@ -30,6 +30,4 @@ function modifyH5WebpackChain(chain) {
             return args
         })
 }
-  
-exports.modifyH5WebpackChain = modifyH5WebpackChain
   

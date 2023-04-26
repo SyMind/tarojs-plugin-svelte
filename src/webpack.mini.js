@@ -1,7 +1,7 @@
-const sveltePreprocess = require('svelte-preprocess')
-const { getLoaderMeta } = require('./loader-meta')
+import sveltePreprocess from 'svelte-preprocess'
+import { getLoaderMeta } from './loader-meta'
 
-function modifyMiniWebpackChain(chain) {
+export function modifyMiniWebpackChain(chain) {
     chain.module
         .rule('svelte')
         .test(/\.svelte$/i)
@@ -27,5 +27,3 @@ function modifyMiniWebpackChain(chain) {
             return args
         })
 }
-
-exports.modifyMiniWebpackChain = modifyMiniWebpackChain

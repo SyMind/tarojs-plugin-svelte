@@ -1,4 +1,4 @@
-function installGlobalShims() {
+export function installGlobalShims() {
     let originCreateEvent = document.createEvent
     document.createEvent = function (type, node) {
         const e = originCreateEvent(type, node)
@@ -10,5 +10,3 @@ function installGlobalShims() {
         return e
     }
 }
-
-exports.installGlobalShims = installGlobalShims

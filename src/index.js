@@ -1,5 +1,5 @@
-const { modifyH5WebpackChain } = require('./webpack.h5')
-const { modifyMiniWebpackChain } = require('./webpack.mini')
+import { modifyH5WebpackChain } from './webpack.h5'
+import { modifyMiniWebpackChain } from './webpack.mini'
 
 try {
     const configSchema = require('@tarojs/cli/dist/doctor/configSchema')
@@ -14,7 +14,7 @@ try {
     // ignore
 }
 
-module.exports = ctx => {
+export default ctx => {
     const { framework } = ctx.initialConfig
     if (framework !== 'svelte') {
         return

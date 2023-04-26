@@ -1,13 +1,14 @@
 import * as path from 'path'
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
 import { externals } from 'rollup-plugin-node-externals'
 import ts from 'rollup-plugin-ts'
 
 const base = {
   plugins: [
-    externals({
-      deps: true,
-      devDeps: false,
-    }),
+    commonjs(),
+    nodeResolve(),
+    externals({}),
     ts()
   ]
 }
@@ -17,6 +18,18 @@ const compileConfig = {
   input: path.join(__dirname, 'src/index.js'),
   output: {
     file: path.join(__dirname, 'lib/index.js'),
+    format: 'cjs',
+    sourcemap: true,
+    exports: 'named'
+  },
+  ...base
+}
+
+// Svelte Loader
+const loaderConfig = {
+  input: path.join(__dirname, 'src/taroSvelteLoader.js'),
+  output: {
+    file: path.join(__dirname, 'lib/taroSvelteLoader.js'),
     format: 'cjs',
     sourcemap: true,
     exports: 'named'
@@ -35,4 +48,4 @@ const runtimeConfig = {
   ...base
 }
 
-export default [compileConfig, runtimeConfig]
+export default [compileConfig, runtimeConfig, loaderConfig]

@@ -1,4 +1,6 @@
-const svelteLoader = require('svelte-loader')
+import svelteLoader from 'svelte-loader'
+import * as codeRed from 'code-red'
+import * as walker from 'estree-walker'
 
 let componentConfig
 try {
@@ -13,67 +15,65 @@ if (!componentConfig) {
 }
 
 function transformNode(code) {
-	return Promise.all([import ('code-red'), import('estree-walker')]).then(([codeRed, walker]) => {
-		const program = codeRed.parse(code, {
-			sourceType: 'module',
-			ecmaVersion: 12,
-			locations: true
-		})
+	const program = codeRed.parse(code, {
+		sourceType: 'module',
+		ecmaVersion: 12,
+		locations: true
+	})
 
-		let element, listen
-		walker.walk(program, {
-			enter(node) {
-				if (node.type === 'ImportDeclaration' && node.source.type === 'Literal' && node.source.value === 'svelte/internal') {
-					for (const specifier  of node.specifiers) {
-						if (specifier.type === 'ImportSpecifier') {
-							if (specifier.imported.name === 'element') {
-								element = specifier.local.name
-							}
-							if (specifier.imported.name === 'listen') {
-								listen = specifier.local.name
-							}
+	let element, listen
+	walker.walk(program, {
+		enter(node) {
+			if (node.type === 'ImportDeclaration' && node.source.type === 'Literal' && node.source.value === 'svelte/internal') {
+				for (const specifier  of node.specifiers) {
+					if (specifier.type === 'ImportSpecifier') {
+						if (specifier.imported.name === 'element') {
+							element = specifier.local.name
 						}
-					}
-				}
-
-				if (node.type === 'CallExpression' && node.callee.type === 'Identifier') {
-					if (node.callee.name === element) {
-						const arg = node.arguments[0]
-						const prefix = 't-'
-						if (arg.type === 'Literal' && arg.value.startsWith(prefix)) {
-							if (process.env.TARO_ENV === 'h5') {
-								const tag = arg.value.substring(prefix.length)
-								arg.value = 'taro-' + tag + '-core'
-							} else {
-								arg.value = arg.value.substring(prefix.length)
-
-								// 收集小程序模板中需要渲染的组件
-								componentConfig.includes.add(arg.value)
-							}
-							arg.raw = JSON.stringify(arg.value)
-						}
-					}
-					if (node.callee.name === listen){
-						const arg = node.arguments[1]
-						if (arg.type === 'Literal' && arg.value === 'tap') {
-							if (process.env.TARO_ENV === 'h5') {
-								arg.value = 'click'
-								arg.raw = JSON.stringify(arg.value)
-							}
+						if (specifier.imported.name === 'listen') {
+							listen = specifier.local.name
 						}
 					}
 				}
 			}
-		})
-		if (element || listen) {
-			code = codeRed.print(program).code
-		}
 
-		return code
+			if (node.type === 'CallExpression' && node.callee.type === 'Identifier') {
+				if (node.callee.name === element) {
+					const arg = node.arguments[0]
+					const prefix = 't-'
+					if (arg.type === 'Literal' && arg.value.startsWith(prefix)) {
+						if (process.env.TARO_ENV === 'h5') {
+							const tag = arg.value.substring(prefix.length)
+							arg.value = 'taro-' + tag + '-core'
+						} else {
+							arg.value = arg.value.substring(prefix.length)
+
+							// 收集小程序模板中需要渲染的组件
+							componentConfig.includes.add(arg.value)
+						}
+						arg.raw = JSON.stringify(arg.value)
+					}
+				}
+				if (node.callee.name === listen){
+					const arg = node.arguments[1]
+					if (arg.type === 'Literal' && arg.value === 'tap') {
+						if (process.env.TARO_ENV === 'h5') {
+							arg.value = 'click'
+							arg.raw = JSON.stringify(arg.value)
+						}
+					}
+				}
+			}
+		}
 	})
+	if (element || listen) {
+		code = codeRed.print(program).code
+	}
+
+	return code
 }
 
-module.exports = function (source) {
+export default function taroSvelteLoader(source) {
 	const originAsync = this.async
 
 	this.async = () => {
@@ -82,13 +82,12 @@ module.exports = function (source) {
 			if (err) {
 				callback(err)
 			} else {
-				transformNode(code)
-					.then(res => {
-						callback(null, res, map)
-					})
-					.catch(err => {
-						callback(err)
-					})
+				try {
+					const res = transformNode(code)
+					allback(null, res, map)
+				} catch (err) {
+					callback(err)
+				}
 			}
 		}
 	}
