@@ -97,4 +97,4 @@ function taroSvelteLoader(source) {
 	svelteLoader.call(this, source)
 }
 
-module.exports = taroSvelteLoader
+export default taroSvelteLoader

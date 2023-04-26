@@ -1,4 +1,4 @@
-const taroSvelteLoader = require('../lib/taroSvelteLoader')
+import taroSvelteLoader from '../lib/taroSvelteLoader'
 
 jest.mock('@tarojs/webpack5-runner/dist/utils/component', () => ({
     componentConfig: {
@@ -6,7 +6,7 @@ jest.mock('@tarojs/webpack5-runner/dist/utils/component', () => ({
     }
 }))
 
-function testLoader(source, callback, query, version = 2) {
+function testLoader(source: string, callback: (err: Error | null, code: string, map: string) => void) {
     return done => {
         const addedDependencies = new Set();
 
@@ -16,6 +16,7 @@ function testLoader(source, callback, query, version = 2) {
             }
             args.push(addedDependencies);
             try {
+                // @ts-ignore
                 callback(...args);
             } catch (err) {
                 expect(callbackSpy).toBeCalled();
@@ -36,9 +37,7 @@ function testLoader(source, callback, query, version = 2) {
                 cacheable: cacheableSpy,
                 async: () => callbackSpy,
                 addDependency: dependencySpy,
-                resourcePath: '<nil>',
-                version,
-                query
+                resourcePath: '<nil>'
             },
             source,
             null
