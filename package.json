@@ -6,7 +6,9 @@
   "files": [
     "lib"
   ],
-  "scripts": {},
+  "scripts": {
+    "test": "NODE_OPTIONS=\"--experimental-vm-modules\" jest"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SyMind/tarojs-plugin-svelte.git"
@@ -41,5 +43,11 @@
   "volta": {
     "node": "18.13.0",
     "npm": "9.6.5"
+  },
+  "devDependencies": {
+    "@tarojs/webpack5-runner": "^3.6.5",
+    "@types/jest": "^29.5.1",
+    "jest": "^29.5.0",
+    "svelte": "^3.58.0"
   }
 }
