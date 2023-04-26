@@ -103,3 +103,4 @@ deploy_versions/
 .swc
 .yalc
 yalc.lock
+lib/
