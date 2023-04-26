@@ -1,10 +1,14 @@
+import type { SvelteComponentTyped, ComponentConstructorOptions } from 'svelte/internal'
+import { installGlobalShims } from './dom'
+
 const { hooks } = require('@tarojs/shared')
 const { Current, document } = require('@tarojs/runtime')
-const { installGlobalShims } = require('./dom')
 
 installGlobalShims()
 
 const [ONLAUNCH, ONSHOW, ONHIDE] = hooks.call('getMiniLifecycleImpl').app
+
+let container: HTMLDivElement = null
 
 export function createSvelteApp(app, config) {
     const pages = new Map()
@@ -12,8 +16,8 @@ export function createSvelteApp(app, config) {
     const appConfig = {
         config,
 
-        mount(Page, id, cb) {
-            const options = {}
+        mount(Page: { new(options: ComponentConstructorOptions): SvelteComponentTyped }, id, cb) {
+            let options: ComponentConstructorOptions;
 
             if (process.env.TARO_ENV === 'h5') {
                 const root = document.createElement('div')
@@ -21,12 +25,18 @@ export function createSvelteApp(app, config) {
 
                 container.appendChild(root)
 
-                options.target = root
-                options.class = 'taro_page'
+                options = {
+                    target: root,
+                    props: {
+                        class: 'taro_page'
+                    }
+                }
             } else {
                 const root = document.createElement('root')
                 root.id = id
-                options.target = root
+                options = {
+                    target: root
+                }
             }
 
             const page = new Page(options)

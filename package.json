@@ -7,6 +7,7 @@
     "lib"
   ],
   "scripts": {
+    "prepublishOnly": "npm run build",
     "build": "rollup -c --bundleConfigAsCjs",
     "test": "jest"
   },
@@ -26,12 +27,10 @@
     "url": "https://github.com/SyMind/tarojs-plugin-svelte/issues"
   },
   "homepage": "https://github.com/SyMind/tarojs-plugin-svelte#readme",
-  "dependencies": {
-    "sass": "^1.62.0",
-    "svelte-loader": "^3.1.5",
-    "svelte-preprocess": "^5.0.3"
-  },
   "peerDependencies": {
+    "@tarojs/runtime": ">=3.0.0",
+    "@tarojs/service": ">=3.0.0",
+    "@tarojs/shared": ">=3.0.0",
     "@tarojs/webpack5-runner": ">=3.0.0",
     "svelte": ">=3.0.0"
   },
@@ -46,6 +45,9 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.1.0",
     "@rollup/plugin-node-resolve": "^15.0.2",
+    "@tarojs/runtime": "^3.6.5",
+    "@tarojs/service": "^3.6.5",
+    "@tarojs/shared": "^3.6.5",
     "@tarojs/webpack5-runner": "^3.6.5",
     "@types/jest": "^29.5.1",
     "code-red": "^0.2.5",
@@ -54,6 +56,11 @@
     "rollup": "^3.21.0",
     "rollup-plugin-node-externals": "^5.0.0",
     "rollup-plugin-ts": "^3.0.2",
+    "sass": "^1.62.1",
     "svelte": "^3.58.0"
+  },
+  "dependencies": {
+    "svelte-loader": "^3.1.5",
+    "svelte-preprocess": "^5.0.3"
   }
 }

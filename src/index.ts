@@ -1,5 +1,8 @@
+import type { IPluginContext } from '@tarojs/service'
 import { modifyH5WebpackChain } from './webpack.h5'
 import { modifyMiniWebpackChain } from './webpack.mini'
+
+const { isWebPlatform } = require('@tarojs/shared')
 
 try {
     const configSchema = require('@tarojs/cli/dist/doctor/configSchema')
@@ -14,7 +17,7 @@ try {
     // ignore
 }
 
-export default ctx => {
+export default (ctx: IPluginContext) => {
     const { framework } = ctx.initialConfig
     if (framework !== 'svelte') {
         return
@@ -31,7 +34,7 @@ export default ctx => {
 
         chain.resolve.extensions.add('.svelte')
 
-        if (process.env.TARO_ENV === 'h5') {
+        if (isWebPlatform()) {
             modifyH5WebpackChain(chain)
         } else {
             modifyMiniWebpackChain(chain)
@@ -58,12 +61,8 @@ export default ctx => {
                 compiler.prebundle = {}
             }
             const prebundleOptions = compiler.prebundle
-            if (!prebundleOptions.include) {
-                prebundleOptions.include = []
-            }
-            if (!prebundleOptions.exclude) {
-                prebundleOptions.exclude = []
-            }
+            prebundleOptions.include ||= []
+            prebundleOptions.exclude ||= []
 
             // TODO：暂时关闭 prebundle
             prebundleOptions.enable = false
@@ -71,13 +70,9 @@ export default ctx => {
                 return
             }
 
-            if (!prebundleOptions.esbuild) {
-                prebundleOptions.esbuild = {}
-            }
+            prebundleOptions.esbuild ||= {}
             const esbuildConfig = prebundleOptions.esbuild
-            if (!prebundleOptions.plugins) {
-                prebundleOptions.plugins = []
-            }
+            esbuildConfig.plugins ||= []
         }
     })
 }

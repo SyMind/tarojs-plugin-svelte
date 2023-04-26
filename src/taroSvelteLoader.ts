@@ -23,7 +23,9 @@ function transformNode(code) {
 
 	let element, listen
 	walker.walk(program, {
-		enter(node) {
+		enter(n) {
+			const node = n as any
+
 			if (node.type === 'ImportDeclaration' && node.source.type === 'Literal' && node.source.value === 'svelte/internal') {
 				for (const specifier  of node.specifiers) {
 					if (specifier.type === 'ImportSpecifier') {
@@ -73,7 +75,7 @@ function transformNode(code) {
 	return code
 }
 
-export default function taroSvelteLoader(source) {
+function taroSvelteLoader(source) {
 	const originAsync = this.async
 
 	this.async = () => {
@@ -84,7 +86,7 @@ export default function taroSvelteLoader(source) {
 			} else {
 				try {
 					const res = transformNode(code)
-					allback(null, res, map)
+					callback(null, res, map)
 				} catch (err) {
 					callback(err)
 				}
@@ -94,3 +96,5 @@ export default function taroSvelteLoader(source) {
 
 	svelteLoader.call(this, source)
 }
+
+module.exports = taroSvelteLoader

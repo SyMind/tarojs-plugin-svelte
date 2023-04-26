@@ -2,7 +2,7 @@
     "compilerOptions": {
         "baseUrl": ".",
         "outDir": "lib",
-        "module": "ESNext",
+        "module": "CommonJS",
         "sourceMap": true,
         "allowSyntheticDefaultImports": true,
         "experimentalDecorators": true,
@@ -13,8 +13,8 @@
         "removeComments": false,
         "resolveJsonModule": true,
         "skipLibCheck": true,
-        "target": "ES2015",
-        "allowJs": true
+        "target": "ES6",
+        "lib": ["DOM"]
     },
     "include": [
         "src"
