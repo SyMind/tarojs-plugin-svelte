@@ -32,8 +32,7 @@
     "@tarojs/runtime": ">=3.0.0",
     "@tarojs/service": ">=3.0.0",
     "@tarojs/shared": ">=3.0.0",
-    "@tarojs/webpack5-runner": ">=3.0.0",
-    "svelte": ">=3.0.0"
+    "@tarojs/webpack5-runner": ">=3.0.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
