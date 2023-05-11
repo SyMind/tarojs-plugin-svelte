@@ -10,7 +10,7 @@
     "postinstall": "patch-package",
     "prepublishOnly": "npm run build",
     "build": "rollup -c --bundleConfigAsCjs",
-    "test": "npm run buil && jest"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
