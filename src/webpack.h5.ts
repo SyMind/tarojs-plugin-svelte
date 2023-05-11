@@ -12,9 +12,6 @@ export function modifyH5WebpackChain(chain) {
         .loader(require.resolve('./taroSvelteLoader'))
         .options({
             emitCss: true,
-            compilerOptions: {
-                hydratable: true
-            },
             preprocess: sveltePreprocess({
                 typescript: {
                     compilerOptions: {
