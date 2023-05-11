@@ -43,7 +43,7 @@ const config = {
 
 |        | 初始项目   |
 | ------ | ---------- |
-| Svelte | 178kb ⭐️ |
+| Svelte | 169kb ⭐️ |
 | React  | 307kb      |
 | PReact | 193kb      |
 
