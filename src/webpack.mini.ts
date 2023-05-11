@@ -9,9 +9,6 @@ export function modifyMiniWebpackChain(chain) {
         .loader(require.resolve('./taroSvelteLoader'))
         .options({
             emitCss: true,
-            compilerOptions: {
-                hydratable: true
-            },
             preprocess: sveltePreprocess({
                 typescript: {
                     compilerOptions: {

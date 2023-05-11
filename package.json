@@ -1,12 +1,13 @@
 {
   "name": "tarojs-plugin-svelte",
-  "version": "1.0.9",
+  "version": "2.0.0",
   "description": "使用 Svelte 开发小程序",
   "main": "lib/index.js",
   "files": [
     "lib"
   ],
   "scripts": {
+    "postinstall": "patch-package",
     "prepublishOnly": "npm run build",
     "build": "rollup -c --bundleConfigAsCjs",
     "test": "npm run buil && jest"
@@ -57,11 +58,12 @@
     "rollup-plugin-node-externals": "^5.0.0",
     "rollup-plugin-ts": "^3.0.2",
     "sass": "^1.62.1",
-    "svelte": "^3.58.0",
     "ts-jest": "^29.1.0",
     "typescript": "^4.9.5"
   },
   "dependencies": {
+    "patch-package": "^7.0.0",
+    "svelte": ">=3.0.0",
     "svelte-loader": "^3.1.5",
     "svelte-preprocess": "^5.0.3"
   }
