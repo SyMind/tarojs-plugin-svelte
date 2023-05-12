@@ -62,7 +62,7 @@
   },
   "dependencies": {
     "patch-package": "^7.0.0",
-    "svelte": ">=3.0.0",
+    "svelte": "3.59.1",
     "svelte-loader": "^3.1.5",
     "svelte-preprocess": "^5.0.3"
   }
