@@ -1,0 +1,13 @@
+diff --git a/node_modules/svelte/compiler.cjs b/node_modules/svelte/compiler.cjs
+index c6a8bf1..dd97510 100644
+--- a/node_modules/svelte/compiler.cjs
++++ b/node_modules/svelte/compiler.cjs
+@@ -14877,7 +14877,7 @@ class Node {
+ 				value: parent
+ 			}
+ 		});
+-		this.can_use_innerhtml = true;
++		this.can_use_innerhtml = process.env.TARO_ENV === 'h5';
+ 		this.is_static_content = true;
+ 	}
+ 	cannot_use_innerhtml() {

@@ -1,4 +1,4 @@
-import type { SvelteComponentTyped, ComponentConstructorOptions } from 'svelte/internal'
+import type { SvelteComponent, ComponentConstructorOptions } from 'svelte'
 import { installGlobalShims } from './dom'
 
 const { hooks } = require('@tarojs/shared')
@@ -16,7 +16,7 @@ export function createSvelteApp(app, config) {
     const appConfig = {
         config,
 
-        mount(Page: { new(options: ComponentConstructorOptions): SvelteComponentTyped }, id, cb) {
+        mount(Page: { new(options: ComponentConstructorOptions): SvelteComponent }, id, cb) {
             let options: ComponentConstructorOptions;
 
             if (process.env.TARO_ENV === 'h5') {
