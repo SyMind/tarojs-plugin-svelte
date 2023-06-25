@@ -13,8 +13,7 @@ const base = {
         '@tarojs/runtime',
         '@tarojs/service',
         '@tarojs/shared',
-        '@tarojs/webpack5-runner',
-        'svelte'
+        '@tarojs/webpack5-runner'
       ]
     }),
     ts()
