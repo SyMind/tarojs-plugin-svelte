@@ -1,0 +1,31 @@
+name: CI
+'on':
+  push:
+    branches:
+      - main
+    tags-ignore:
+      - '**'
+    paths-ignore:
+      - '**/*.md'
+      - LICENSE
+      - '**/*.gitignore'
+      - .editorconfig
+  pull_request: null
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          check-latest: true
+      - name: Install dependencies
+        run: npm install
+      - name: List packages
+        run: ls -R .
+        shell: bash
+      - name: Test
+        run: npm run test
+
