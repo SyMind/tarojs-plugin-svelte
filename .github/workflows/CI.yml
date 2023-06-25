@@ -23,9 +23,8 @@ jobs:
           check-latest: true
       - name: Install dependencies
         run: npm install
-      - name: List packages
-        run: ls -R .
-        shell: bash
+      - name: Build
+        run: npm run build
       - name: Test
         run: npm run test
 
